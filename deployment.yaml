@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: teach-react-app
+  labels:
+    app: teach-react-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: cuddly-invention
+  template:
+    metadata:
+      labels:
+        app: teach-react-app
+    spec:
+      containers:
+        - name: teach-react-app
+          image: nkbk/teach-react-app:9d001e6e
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "250m"
+              memory: "256Mi"
