@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: express-order-service
+  labels:
+    app: express-order-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: express-order-service
+  template:
+    metadata:
+      labels:
+        app: express-order-service
+    spec:
+      containers:
+      - name: express-order-service
+        image: nkbk/express-order-service:5f8cdb7c
+        ports:
+          - containerPort: 3000
+        resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "250m"
+              memory: "256Mi"
