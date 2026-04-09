@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: express-order-service
+  labels:
+    app: express-order-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: express-order-service
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
