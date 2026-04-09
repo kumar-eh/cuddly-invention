@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: express-order-service
-        image: nkbk/express-order-service:5f8cdb7c
+        image: nkbk/express-order-service:e01436a7
         ports:
           - containerPort: 3000
         resources:
